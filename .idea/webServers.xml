@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="01967dfe-d0b2-4f53-a054-8bcea808a701" name="ovh remote" url="http://www.expapp.fr">
+        <fileTransfer host="ftp.cluster006.ovh.net" port="21" username="expappfrhu">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

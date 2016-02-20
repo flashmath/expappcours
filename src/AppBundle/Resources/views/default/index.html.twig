@@ -1,0 +1,84 @@
+{# src/Blogger/BlogBundle/Resources/views/Page/index.html.twig #}
+{% extends '::layout.html.twig' %}
+
+{%  block banner %}
+    <div class="banner text-center">
+        <div class="container">
+            <div class="banner-info">
+                <h1>Bienvenue sur ExpertApplication Cours</h1>
+                <p>Une manière simple de travailler en classe inversée.</p>
+                <label class="page-scroll">
+                    <a class="banner-btn class scroll" href="#feature">
+                        <span></span>
+                    </a>
+                </label>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="#" class="feature_btn">Je suis enseignant</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="#" class="feature_btn">Je suis élève</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="#" class="feature_btn">Je suis parent</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{%  block main %}
+    <div class="content_white">
+        <h2>Le site pour la classe inversée</h2>
+        <p>Réjoignez la révolution de l'enseignement</p>
+    </div>
+    <div class="featured_content" id="feature">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 feature_grid1">
+                    <i class="fa fa-graduation-cap fa-5x"></i>
+                    <h3 class="m_1">Pour les enseignants</h3>
+                    <p class="m_2">Créer des classes d'apprentissages<br/>
+                        Découvrir et partager des ressources</p>
+                    <a href="#" class="feature_btn">Inscription</a>
+                </div>
+                <div class="col-md-4 feature_grid1">
+                    <i class="fa fa-user fa-5x"></i>
+                    <h3 class="m_1">Pour les parents</h3>
+                    <p class="m_2">Rester informer du travail de son enfant<br/>
+                        Aider son enfant</p>
+                    <a href="#" class="feature_btn">En savoir plus</a>
+                </div>
+                <div class="col-md-4 feature_grid2">
+                    <i class="fa fa-university fa-5x"></i>
+                    <h3 class="m_1">Pour les établissements</h3>
+                    <p class="m_2">Obtenir des aperçus<br/>
+                        Gérer les utilisateurs</p>
+                    <a href="#" class="feature_btn">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content_white">
+        <h2>Apprenez à votre rythme</h2>
+        <p>Vous souhaitez progresser en étant autonome.</p>
+    </div>
+    <div class="featured_content">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 feature_grid1">
+                    <a href="#" class="feature_btn">Je suis enseignant</a>
+                </div>
+                <div class="col-md-4 feature_grid1">
+                    <a href="#" class="feature_btn">Je suis élève</a>
+                </div>
+                <div class="col-md-4 feature_grid2">
+                    <a href="#" class="feature_btn">Je suis parent</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

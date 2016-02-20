@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{%  block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('Resources/Public/css/bootstrap.css') }}" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('Resources/Public/css/AdminLTE.min.css') }}" />
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{ asset('Resources/Public/plugins/iCheck/square/blue.css') }}" />
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+{% endblock %}
+
+{% block classbody %}
+class="hold-transition login-page"
+{% endblock %}
+
+{% block body %}
+
+        <div class="login-box">
+            <div class="login-logo">
+                <a href="{{ path('homepage') }}">
+                    <img src="{{ asset('images/logo2.png') }}" rel="logo"/>
+                </a>
+            </div>
+            <div class="login-box-body">
+                {% block loginboxbody %}
+
+                {% endblock loginboxbody %}
+            </div>
+        </div>
+{% endblock %}

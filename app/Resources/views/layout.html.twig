@@ -1,0 +1,167 @@
+{# src/Blogger/BlogBundle/Resources/views/layout.html.twig #}
+{% extends '::base.html.twig' %}
+
+{%  block stylesheets  %}
+    {{ parent() }}
+
+                <link rel="stylesheet" href="{{ asset('Resources/Public/css/bootstrap.css') }}" />
+                <link rel="stylesheet" href="{{ asset('Resources/Public/css/style.css') }}" />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+
+    <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block body %}
+<div class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="#">
+                <img src="{{ asset('images/logo.png') }}" alt="logo"/>
+            </a>
+        </div>
+
+        <div class="menu">
+            <ul class="nav" id="nav">
+                <li>
+                    <a href="#">Enseignants</a>
+                </li>
+                <li>
+                    <a href="#">Établissements</a>
+                </li>
+                <li class="current">
+                    <a href="#">Connexion</a>
+                </li>
+            </ul>
+            <script type="text/javascript" src="{{ asset('js/responsive-nav.js') }}"></script>
+        </div>
+
+        <div class="clearfix">
+        </div>
+    </div>
+
+</div>
+
+    {% block banner %}
+
+    {% endblock %}
+
+        <div class="main">
+        {% block main %}
+
+        {% endblock %}
+        <div class="footer">
+            <div class="footer_top">
+                <div class="container">
+                    <div class="footer_head">
+                        <h2>Rester informer</h2>
+                        <p>Pour rester informer de l'évolution du système</p>
+                    </div>
+                    <div class="row footer_grid">
+                        <div class="md-1">
+                            <ul class="message">
+                                <li class="msg-icon">
+                                    <i class="fa fa-envelope fa-3x"></i>
+                                </li>
+                                <li class="msg-desc">
+                                    <h4><a href="#">Souscrire à notre Newsletter</a></h4>
+                                    <p>Via email</p>
+                                </li>
+                                <div class="clearfix"></div>
+                            </ul>
+                            <div class="subscribe">
+                                <form>
+                                    <input type="text" value="">
+                                    <input type="submit" value="Souscrire">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_midle">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <p>ExpertApplication Cours permet d'offrir des ressoruces pédagogiques pour l'enseignement</p>
+                            <p>ExpertApplication 2016</p>
+                        </div>
+                        <div class="col-md-3">
+                            <ul>
+                                <li>
+                                    <a href="#">À propos</a>
+                                </li>
+                                <li>
+                                    <a href="#">Actualités</a>
+                                </li>
+                                <li>
+                                    <a href="#">Nous contacter</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <ul>
+                                <li>
+                                    <a href="#">Enseignants</a>
+                                </li>
+                                <li>
+                                    <a href="#">Etablissements</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <ul>
+                                <li>
+                                    <a href="#">Assistance</a>
+                                </li>
+                                <li>
+                                    <a href="#">Conditions d'utilisation</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="copy">
+                    <p>2016 Fabrice Charlemagne</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+<!---- start-smoth-scrolling---->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+        });
+    });
+</script>
+<!---- start-smoth-scrolling---->
+
+    <!----start-top-nav-script---->
+    <script>
+        $(function() {
+            var pull 		= $('#pull');
+            menu 		= $('nav ul');
+            menuHeight	= menu.height();
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>
+    <!----//End-top-nav-script---->
+{% endblock %}
