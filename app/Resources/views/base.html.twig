@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT">
+        <meta http-equiv="Pragma" content="no-cache">
         <meta http-equiv="Content-Type" content="text/html"; charset=utf-8" />
         <title>{% block title %}ExpertApplication Cours{% endblock %} - ExpApp</title>
         <!--[if lt IE 9]>
@@ -13,6 +15,11 @@
 
         {% endblock %}
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block scripts %}
+
+        {% endblock %}
+
     </head>
     <body {% block classbody %}{% endblock %}>
     {% block body %}
