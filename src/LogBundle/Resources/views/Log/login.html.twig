@@ -1,0 +1,18 @@
+{%  extends '@Log/Default/index.html.twig'%}
+
+{% block loginboxbody %}
+
+    {% if error is defined %}
+        {{ error.message }}
+    {% endif %}
+
+   <p> Vous êtes connecté avec {{ message }}</p>
+
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <p>Vous êtes bien connecté</p>
+    {% else %}
+        <p>Problème de connexion</p>
+    {% endif %}
+
+    <a href="{{ path("homepage") }}">Suite</a>
+{% endblock loginboxbody%}

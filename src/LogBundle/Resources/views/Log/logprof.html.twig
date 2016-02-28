@@ -1,8 +1,64 @@
 {%  extends '@Log/Default/index.html.twig'%}
 
+{% block stylesheets %}
+{{ parent() }}
+    <style type="text/css">
+   .has-feedback .form-control-feedback{
+      top:0;
+       z-index: 2;
+   }
+    </style>
+{% endblock stylesheets %}
+
 {% block loginboxbody %}
 <p class="login-box-msg">Identifiez-vous pour démarrer votre session</p>
+
+    {% if error %}
+        <div class="error">{{ error.message }}</div>
+    {% endif %}
+
+    {{ form_start(form,{'action':path('login_check'),'method':'POST'}) }}
+    <div class="form-group has-feedback">
+       {% if last_username=='' %}
+            {{ form_widget(form.username, {'attr':{'class':'form-control','placeholder':'Login ou Email','name':'_username'}}) }}
+        {% else %}
+            {{ form_widget(form.username, {'attr':{'class':'form-control','placeholder':'Login ou Email','value':last_username}}) }}
+        {% endif %}
+
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+        {{ form_widget(form.password,{'attr':{'class':'form-control','placeholder':'Mot de passe'}}) }}
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </div>
+    {#<form action="{{ path('login_check') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password""/>#}
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="checkbox icheck">
+                <label class>
+                    <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position:relative;">
+                        <input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);">
+                        <ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins>
+                    </div>
+                    Se souvenir de moi
+                </label>
+
+            </div>
+        </div>
+        <div class="col-xs-4">
+    {#{{ form_row(form.password,{'essai': 'test'}) }}#}
+
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Connexion</button>
+        </div>
+    </div>
+    {#{{ form_end(form) }}#}
+    </form>
     <a href="#">J'ai oublié mon mot de passe</a>
     <br/>
     <a href="#">Enregistrer un nouvel utilisateur</a>
-{% endblock %}
+{% endblock loginboxbody %}

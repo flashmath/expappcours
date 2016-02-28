@@ -1,4 +1,3 @@
-{# src/Blogger/BlogBundle/Resources/views/layout.html.twig #}
 {% extends '::base.html.twig' %}
 
 {%  block stylesheets  %}
@@ -60,7 +59,7 @@
                     <a href="#">Établissements</a>
                 </li>
                 <li class="current">
-                    <a href="#">Connexion</a>
+                    <a href="{{ path('user_user_index') }}">Connexion</a>
                 </li>
             </ul>
             <script type="text/javascript" src="{{ asset('js/responsive-nav.js') }}"></script>
@@ -88,7 +87,7 @@
                         <p>Pour rester informer de l'évolution du système</p>
                     </div>
                     <div class="row footer_grid">
-                        <div class="col-md-1">
+                        <div class="md-1">
                             <ul class="message">
                                 <li class="msg-icon">
                                     <i class="fa fa-envelope fa-3x"></i>

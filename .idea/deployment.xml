@@ -2,13 +2,6 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="local">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/expappcours" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="ovh remote">
         <serverdata>
           <mappings>
