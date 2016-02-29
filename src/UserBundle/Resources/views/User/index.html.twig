@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html"; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html" charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>ClassInvers</title>
 
@@ -166,8 +166,10 @@
             </section>
 
             <!-- Main content -->
-            <section class="content">
-
+            <section class="content" ng-app="expAppCours">
+                <div ng-controller="mainCtrl">
+                    {{ '{{ mess }}' }}
+                </div>
             </section>
         </div>
         <!-- /.content-wrapper -->
@@ -231,5 +233,7 @@
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the
          fixed layout. -->
+    <script src="{{ asset('js/angular.js') }}"></script>
+    <script src="{{ asset('js/mainApp.js') }}"></script>
     </body>
 </html>
