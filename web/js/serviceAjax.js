@@ -6,7 +6,7 @@ angular.module('expAppCours')
     .factory('serviceAjax', function($http){
        return {
          test: function(){
-             return $http.get("http://localhost/8000/user/test");
+             return $http.get("http://localhost:8000/user/test");
          }
        };
     });
