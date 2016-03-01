@@ -11,7 +11,7 @@ class DefaultController extends Controller
 
     /**
      * @param Request $request
-     * @Route("test/essai")
+     * @Route("login")
      */
     public function Action(Request $request)
     {
