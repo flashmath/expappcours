@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -48,8 +49,32 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
 
+    /**
+     * @var
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Notification", cascade={"persist"})
+     */
+    private $notifications;
+
+    /**
+     * @return mixed
+     */
+    public function getNotifications()
+    {
+        return $this->notifications;
+    }
+
+    public function addNotification(Notification $notification){
+        $this->notifications[] = $notification;
+        return $this;
+    }
+
+    public function removeNotification(Notification $notification){
+        $this->notifications->removeElement($notification);
+    }
+
     public function __construct(){
         $this->isActive = true;
+        $this->notifications = new ArrayCollection();
     }
     /**
      * @return mixed
