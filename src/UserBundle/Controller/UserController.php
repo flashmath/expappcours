@@ -5,6 +5,7 @@ namespace UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\User;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class UserController extends Controller
 {
@@ -23,5 +24,15 @@ class UserController extends Controller
                 'name'=>$name
             ));
 
+    }
+
+    /**
+     * @Route("user/test")
+     */
+    public function userTestAction(){
+        $mess = array(
+            'result'=>'Symfony OK');
+
+        return new JsonResponse($mess);
     }
 }
