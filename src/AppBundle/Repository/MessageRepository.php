@@ -10,4 +10,32 @@ namespace AppBundle\Repository;
  */
 class MessageRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param integer $userId
+     */
+    public function getMessagesSentByUser($userId)
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->select('m')
+            ->where('m.fromUser = :user_id')
+            ->setParameter('user_id',$userId);
+
+        return $qb->getQuery()->getResult();
+
+    }
+
+    /**
+     * @param integer $userId
+     */
+    public function getMessageReceivedByUser($userId)
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->select('m')
+            ->where('m.toUser = :user_id')
+            ->setParameter('user_id',$userId);
+
+        return $qb->getQuery()->getResult();
+
+    }
+
 }
