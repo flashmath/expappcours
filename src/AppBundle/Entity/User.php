@@ -49,10 +49,16 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
 
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="Task", mappedBy="user")
+     */
+    private $tasks;
 
     public function __construct(){
         $this->isActive = true;
         $this->usernotifications = new ArrayCollection();
+        $this->tasks = new ArrayCollection();
     }
     /**
      * @return mixed
@@ -208,5 +214,21 @@ class User implements UserInterface, \Serializable
 
     public function removeUserNotifications(NotificationUser $notificationUser){
         $this->usernotifications->removeElement($notificationUser);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTasks()
+    {
+        return $this->tasks;
+    }
+
+    public function addTask(Task $task){
+        $this->tasks[] = $task;
+    }
+
+    public function removeTask(Task $task){
+        $this->tasks->removeElement($task);
     }
 }

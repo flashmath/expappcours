@@ -7,9 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ApiRestController extends Controller
 {
     public function getUserNotificationsAction(){
-        $em = $this->getDoctrine()->getManager();
-        $notifications = $em->getRepository('AppBundle:NotificationUser')->getNotificationsForUser(1);
+        //$user = $this->get('security.token_storage')->getToken()->getUser();
+        //$userID=$user->getId();
+        $userID = 1;
 
+        $em = $this->getDoctrine()->getManager();
+        $notifications = $em->getRepository('AppBundle:NotificationUser')->getNotificationsForUser($userID);
+
+        //$tasks = $em->getRepository('AppBundle:Task')->getTasksForForUser()
         $response = Array(
             'count' => count($notifications)
         );
