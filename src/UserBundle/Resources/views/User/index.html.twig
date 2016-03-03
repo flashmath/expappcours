@@ -33,7 +33,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="skin-blue sidebar-mini">
+    <body class="skin-blue sidebar-mini" ng-app="expAppCours">
     <div class="wrapper">
         <!-- Main Header -->
         <div class="main-header">
@@ -48,7 +48,7 @@
                 </a>
 
                 <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
+                <div class="navbar-custom-menu" ng-controller="infosCtrl">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu">
@@ -59,6 +59,7 @@
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning" ng-show="notificationsShow">{{ '{{ notificationsCount}}' }}</span>
                             </a>
                         </li>
                         <li class="dropdown tasks-menu">
@@ -114,7 +115,7 @@
                 <!-- /.search form -->
 
                 <!-- Sidebar Menu -->
-                <ul class="sidebar-menu">
+                <ul class="sidebar-menu" ng-controller="infosCtrl">
                     <li class="header">HEADER</li>
                     <!-- Optionally, you can add icons to the links -->
                     <li class="active">
@@ -133,6 +134,7 @@
                         <a href="#">
                             <i class="fa fa-bell-o"></i>
                             <span>Notifications</span>
+                            <small class="label pull-right bg-yellow" ng-show="notificationsShow">{{ '{{ notificationsCount}}' }}</small>
                         </a>
                     </li>
                     <li>
@@ -166,10 +168,13 @@
             </section>
 
             <!-- Main content -->
-            <section class="content" ng-app="expAppCours">
+            <section class="content" >
                 <div ng-controller="mainCtrl">
                     {{ '{{ mess }}' }}
                 </div>
+                {% block content %}
+                    <a href="{{ path('user_user_usernotifications') }}">test</a>
+                {% endblock content %}
             </section>
         </div>
         <!-- /.content-wrapper -->
@@ -235,6 +240,7 @@
          fixed layout. -->
     <script src="{{ asset('js/angular.js') }}"></script>
     <script src="{{ asset('js/mainApp.js') }}"></script>
+    <script src="{{ asset('js/infos.js') }}"></script>
     <script src="{{ asset('js/serviceAjax.js') }}"></script>
     </body>
 </html>

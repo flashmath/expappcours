@@ -49,32 +49,10 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
 
-    /**
-     * @var
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Notification", cascade={"persist"})
-     */
-    private $notifications;
-
-    /**
-     * @return mixed
-     */
-    public function getNotifications()
-    {
-        return $this->notifications;
-    }
-
-    public function addNotification(Notification $notification){
-        $this->notifications[] = $notification;
-        return $this;
-    }
-
-    public function removeNotification(Notification $notification){
-        $this->notifications->removeElement($notification);
-    }
 
     public function __construct(){
         $this->isActive = true;
-        $this->notifications = new ArrayCollection();
+        $this->usernotifications = new ArrayCollection();
     }
     /**
      * @return mixed
@@ -201,5 +179,34 @@ class User implements UserInterface, \Serializable
     public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
+    }
+
+    /**
+     * ORM\OneToMany(targetEntity="AppBundle\Entity\NotificationUser",mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $usernotifications;
+
+    public function getUserNotifications()
+    {
+        return $this->usernotifications;
+    }
+
+    private $addNotification = false;
+
+    public function addUserNotifications(NotificationUser $notificationUser){
+
+        if (!$this->addNotification) {
+            $this->addNotification = true;
+            $this->usernotifications[] = $notificationUser;
+
+            $notificationUser->setUser($this);
+            $this->addNotification = false;
+        }
+
+        return $this;
+    }
+
+    public function removeUserNotifications(NotificationUser $notificationUser){
+        $this->usernotifications->removeElement($notificationUser);
     }
 }

@@ -7,6 +7,9 @@ angular.module('expAppCours')
        return {
          test: function(){
              return $http.get("http://localhost:8000/user/test");
-         }
+         },
+         info: function(){
+             return $http.get("http://localhost:8000/api/user/notifications");
+           }
        };
     });

@@ -1,0 +1,10 @@
+{% extends 'UserBundle:User:index.html.twig' %}
+
+{% block content %}
+<h2>Test en cours</h2>
+    <ul>
+{%  for notification in notifications %}
+        <li>{{ notification.notification.content }}</li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

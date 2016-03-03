@@ -35,4 +35,25 @@ class UserController extends Controller
 
         return new JsonResponse($mess);
     }
+
+    /**
+     * @Route("user/infos")
+     */
+    public function userNotificationsAction(){
+        $em = $this->getDoctrine()->getManager();
+        $notifications = $em->getRepository('AppBundle:NotificationUser')->getNotificationsForUser(1);
+
+        $response = Array(
+            'count' => $notifications->count()
+        );
+
+        return new JsonResponse($response);
+        //return new JsonResponse($notifications);
+        /*return $this->render('UserBundle:User:test.html.twig',
+            array(
+                'name'=>'name',
+                'notifications'=>$notifications
+            ));*/
+
+    }
 }

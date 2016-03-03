@@ -1,0 +1,5 @@
+#src/ApiBundle/Resources/config/routing_rest.yml
+apis :
+  type: rest
+  resource:     "ApiBundle:ApiRest"
+  name_prefix:  api_

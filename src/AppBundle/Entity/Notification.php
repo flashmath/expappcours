@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -64,4 +65,42 @@ class Notification
         $this->content = $content;
     }
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\NotificationUser",mappedBy="notification", cascade={"persist", "remove"})
+     */
+    private $users;
+
+    /**
+     * @return mixed
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    private $addNotification = false;
+
+    public function addNotificationUser(NotificationUser $notificationUser){
+       if (!$this->addNotification) {
+           $this->addNotification = true;
+
+           $this->users[] = $notificationUser;
+           $notificationUser->setNotification($this);
+           $this->addNotification = false;
+       }
+
+        return $this;
+    }
+
+    public function removeNotificationUser(NotificationUser $notificationUser){
+        $this->users->removeElement($notificationUser);
+    }
+
+    /**
+     * Notification constructor.
+     */
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 }
