@@ -16,9 +16,12 @@ class ApiRestController extends Controller
 
         $tasks = $em->getRepository('AppBundle:Task')->getTasksForForUser($userID);
 
+        $messages = $em->getRepository('AppBundle:Message')->getMessageReceivedByUser($userID);
+
         $response = Array(
             'count_notification' => count($notifications),
-            'count_task' => count($tasks)
+            'count_task' => count($tasks),
+            'count_message' => count($messages)
         );
 
         return $response;
