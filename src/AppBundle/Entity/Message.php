@@ -23,6 +23,14 @@ class Message
     private $id;
 
     /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @var string
      *
      * @ORM\Column(name="object", type="string", length=255)

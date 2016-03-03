@@ -12,6 +12,7 @@ namespace AppBundle\DataFixtures;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use AppBundle\Entity\Message;
 
 class MessageFixtures extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -22,7 +23,15 @@ class MessageFixtures extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        // TODO: Implement load() method.
+        $message1 = new Message();
+        $message1->setId(1);
+        $message1->setObject('Message de test');
+        $message1->setContent("Ajout des fonctionnalités de test");
+        $message1->setFromUser($this->getReference('user'));
+        $message1->setToUser($this->getReference('admin'));
+        $manager->persist($message1);
+
+        $manager->flush();
     }
 
     /**
