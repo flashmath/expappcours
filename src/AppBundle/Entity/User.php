@@ -55,10 +55,61 @@ class User implements UserInterface, \Serializable
      */
     private $tasks;
 
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Message",mappedBy="fromUser")
+     */
+    private $messagessent;
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getMessagessent()
+    {
+        return $this->messagessent;
+    }
+
+    public function addMessageSent(Message $message)
+    {
+        $this->messagessent[] = $message;
+    }
+
+    public function  removeMessageSent(Message $message)
+    {
+        $this->messagessent->removeElement($message);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getMessagesreceived()
+    {
+        return $this->messagesreceived;
+    }
+
+    public function addMessageReceived(Message $message)
+    {
+        $this->messagesreceived[] = $message;
+    }
+
+    public function removeMessageReceived(Message $message)
+    {
+        $this->messagesreceived->removeElement($message);
+    }
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Message",mappedBy="toUser")
+     *
+     */
+    private $messagesreceived;
+
     public function __construct(){
         $this->isActive = true;
         $this->usernotifications = new ArrayCollection();
         $this->tasks = new ArrayCollection();
+        $this->messagesreceived = new ArrayCollection();
+        $this->messagessent = new ArrayCollection();
     }
     /**
      * @return mixed

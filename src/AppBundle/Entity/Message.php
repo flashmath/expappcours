@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\User;
 
 /**
  * Message
@@ -35,6 +36,51 @@ class Message
      */
     private $content;
 
+    /**
+     * @var User
+     * @ORM\ManyToOne(TargetEntity=="AppBundle\Entity\User",inversedBy="messagessent")
+     * @ORM\joinColumn(nullabe=false)
+     */
+    private $fromUser;
+
+    /**
+     * @return mixed
+     */
+    public function getFromUser()
+    {
+        return $this->fromUser;
+    }
+
+    /**
+     * @param mixed $fromUser
+     */
+    public function setFromUser(User $fromUser)
+    {
+        $this->fromUser = $fromUser;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToUser()
+    {
+        return $this->toUser;
+    }
+
+    /**
+     * @param mixed $toUser
+     */
+    public function setToUser(User $toUser)
+    {
+        $this->toUser = $toUser;
+    }
+
+    /**
+     * @var User
+     * @ORM\ManyToOne(TargetEntity=="AppBundle\Entity\User",inversedBy="messagesreceived")
+     * @ORM\joinColumn(nullable=false)
+     */
+    private $toUser;
 
     /**
      * Get id
