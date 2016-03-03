@@ -34,7 +34,7 @@ angular.module('expAppCours',[])
                 $scope.tasksShow = ($scope.tasksCount!=0);
 
                 $scope.messagesCount = data.count_message;
-                $scope.messageShow = ($scope.messagesCount!=0);
+                $scope.messagesShow = ($scope.messagesCount!=0);
             });
         };
 
