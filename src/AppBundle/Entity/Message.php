@@ -46,8 +46,8 @@ class Message
 
     /**
      * @var User
-     * @ORM\ManyToOne(TargetEntity=="AppBundle\Entity\User",inversedBy="messagessent")
-     * @ORM\joinColumn(nullabe=false)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User",inversedBy="messagessent")
+     * @ORM\joinColumn(nullable=false)
      */
     private $fromUser;
 
@@ -85,7 +85,7 @@ class Message
 
     /**
      * @var User
-     * @ORM\ManyToOne(TargetEntity=="AppBundle\Entity\User",inversedBy="messagesreceived")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User",inversedBy="messagesreceived")
      * @ORM\joinColumn(nullable=false)
      */
     private $toUser;
