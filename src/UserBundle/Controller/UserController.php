@@ -40,6 +40,8 @@ class UserController extends Controller
      * @Route("user/infos")
      */
     public function userNotificationsAction(){
+
+
         $em = $this->getDoctrine()->getManager();
         $notifications = $em->getRepository('AppBundle:NotificationUser')->getNotificationsForUser(1);
 

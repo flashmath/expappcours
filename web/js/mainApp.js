@@ -20,11 +20,16 @@ angular.module('expAppCours',[])
 
         $scope.notificationsShow = false;
         $scope.notificationsCount = 0;
+        $scope.tasksCount = 0;
+        $scope.tasksShow = false;
 
         $scope.info =function(){
             serviceAjax.info().success(function(data){
-                $scope.notificationsCount = data.count;
+                $scope.notificationsCount = data.count_notification;
                 $scope.notificationsShow = ($scope.notificationsCount!=0);
+
+                $scope.tasksCount = data.count_task;
+                $scope.tasksShow = ($scope.tasksCount!=0);
             });
         };
 

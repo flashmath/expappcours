@@ -65,6 +65,7 @@
                         <li class="dropdown tasks-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-flag-o"></i>
+                                <span class="label label-success" ng-show="tasksShow">{{ '{{ tasksCount}}' }}</span>
                             </a>
                         </li>
                         <li class="dtropdown user user-menu ">
@@ -141,6 +142,7 @@
                         <a href="#">
                             <i class="fa fa-flag-o"></i>
                             <span>Tâches</span>
+                            <small class="label pull-right bg-green" ng-show="tasksShow">{{ '{{ tasksCount}}' }}</small>
                         </a>
                     </li>
                 </ul>
