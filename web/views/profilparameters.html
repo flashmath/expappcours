@@ -1,0 +1,110 @@
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Paramètres</h3>
+    </div>
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box">
+                    <div class="box-header">
+                        <h5>Votre photo actuelle</h5>
+                    </div>
+                    <div class="box-body">
+                        <img class="profile-user-img img-responsive" ng-src="images/avatar-default.png" alt=""image du profil utilisateur/>
+                    </div>
+                    <div class="box-footer">
+                        Changer la photo du profil
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email1">E-mail principal</label>
+                            <span class="pull-right" ng-if="!user.email1_confirmed"><i class="fa fa-times-circle text-red"/> Confirmer votre email</span>
+                            <span class="pull-right" ng-if="user.email1_confirmed"><i class="fa fa-check-circle-o text-green"/> Confirmé</span>
+                            <input type="email" class="form-control" id="email1" placeholder="Entrer Email" value="{{user.email1}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="email2">E-mail secondaire</label>
+                                <span class="pull-right" ng-if="user.profil.email2==''">Qu'est-ce que c'est ?</span>
+                                <span class="pull-right" ng-if="user.profil.email2!='' && !user.profil.email2_confirmed"><i class="fa fa-times-circle text-red"/> Confirmer votre email</span>
+                                <span class="pull-right" ng-if="user.profil.email2!='' && user.profil.email2_confirmed"><i class="fa fa-check-circle-o text-green"/> Confirmé</span>
+                                <input type="email" class="form-control" id="email2" placeholder="Entrer Email" value="{{user.profil.email2}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="titre">Titre</label>
+                            <select class="form-control" ng-model="user.profil.titre" id="titre" ng-init="">
+                                <option value="" ng-selected="user.profil.titre==0 || user.profil.titre==''">---</option>
+                                <option ng-repeat="option in user.profil.availableTitre" value="{{option.id}}" >{{option.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input class="form-control" id="name" ng-model="user.name"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="firstname">Prénom</label>
+                            <input class="form-control" id="firstname" ng-model="user.firstname"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="country">Pays</label>
+                          <!--  <select class="form-control" id="country" ng-model="user.profil.country"/>-->
+                            <country-select cs-priorities="FR, GB, US" id="country" class="form-control" ng-model="user.profil.country"></country-select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="fuseauhoraire">Fuseau horaire</label>
+                            <timezone-select class="form-control" id="fuseauhoraire" ng-model="user.profil.fuseau">
+                            <!-- <select class="form-control" id="fuseauhoraire" ng-model="user.profil.fuseau"/>-->
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary">Enregistrer les informations personnelles</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Ecole</h4>
+                <p><i class="fa fa-map-marker text-muted"></i> {{user.profil.localisation}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary">Changer l'école</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">Désactiver voter compte</p>
+            </div>
+        </div>
+    </div>
+</div>
