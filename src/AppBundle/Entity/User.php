@@ -62,6 +62,28 @@ class User implements UserInterface, \Serializable
     private $messagessent;
 
     /**
+     * @var
+     * @ORM\OneToOne(targetEntity="Profil", cascade={"persist"}, inversedBy="user")
+     */
+    private $profil;
+
+    /**
+     * @return mixed
+     */
+    public function getProfil()
+    {
+        return $this->profil;
+    }
+
+    /**
+     * @param mixed $profil
+     */
+    public function setProfil(Profil $profil=null)
+    {
+        $this->profil = $profil;
+    }
+
+    /**
      * @return ArrayCollection
      */
     public function getMessagessent()

@@ -70,7 +70,7 @@
                             </a>
                         </li>
                         <li class="dtropdown user user-menu ">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#/profil" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="dist/img/user2-160x160.jpg" class="user-image" alt="Image de l'utilisateur">
                                 <span class="hidden-xs">{{ name }}</span>
                             </a>
@@ -179,6 +179,7 @@
                 {% block content %}
                     <a href="{{ path('user_user_usernotifications') }}">test</a>
                 {% endblock content %}
+                <div ng-view=""></div>
             </section>
         </div>
         <!-- /.content-wrapper -->
@@ -243,6 +244,7 @@
          user experience. Slimscroll is required when using the
          fixed layout. -->
     <script src="{{ asset('js/angular.js') }}"></script>
+    <script src="{{ asset('js/angular-route.js') }}"></script>
     <script src="{{ asset('js/mainApp.js') }}"></script>
     <script src="{{ asset('js/controllers/infos.js') }}"></script>
     <script src="{{ asset('js/controllers/main.js') }}"></script>
