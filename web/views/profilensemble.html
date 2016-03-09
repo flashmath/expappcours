@@ -1,0 +1,26 @@
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Vue d'ensemble du profil</h3>
+    </div>
+    <div class="box-body">
+        <div class="form-group">
+            <label>Etat</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <select class="form-control" ng-model="user.state" ng-init="">
+
+                        <option ng-repeat="option in user.availableState" value="{{option.id}}" ng-selected="user.state==option.id">{{option.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <!-- <select class="form-control"  ng-options="option as option.name for option in user.availableState track by option.id " ng-model="user.state">
+
+             </select>-->
+            <!-- <select class="form-control" ng-model="user.state"
+                     ng-options="option.id as option.name for option in user.availableState track by option.id "
+             >
+
+             </select>-->
+        </div>
+    </div>
+</div>
