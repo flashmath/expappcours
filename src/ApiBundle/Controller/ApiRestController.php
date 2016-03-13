@@ -3,6 +3,8 @@
 namespace ApiBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class ApiRestController extends Controller
 {
@@ -26,5 +28,19 @@ class ApiRestController extends Controller
 
         return $response;
 
+    }
+
+    public function postUserImageAction(Request $request){
+
+
+        $value = serialize($request->request);
+
+        $response = Array(
+            'message' => $value
+        );
+
+
+
+        return $response;
     }
 }

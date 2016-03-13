@@ -5,13 +5,28 @@
 'use strict';
 
 angular.module('expAppCours')
-    .controller('ProfilCtrl',function($scope,$controller){
+    .controller('ProfilCtrl',function($scope,$http){
 
 
             $scope.info = 'Bienvenue sur votre profil';
 
             $scope.panel = 'views/profilensemble.html';
 
+            $scope.image ={}
+
+            $scope.saveImage = function(){
+                $http({
+                    method : 'POST',
+                    url : 'api/users/images',
+                    data: $scope.image,
+                    headers : {'Content-Type': 'undefined'}
+                })
+                    .then(function(data){
+                     alert(data.data.message);
+                    },function(data){
+                        alert('Erreur');
+                    });
+            }
 
             $scope.user.profil= {
                 "email2" : "test",

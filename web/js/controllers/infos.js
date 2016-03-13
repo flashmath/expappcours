@@ -24,5 +24,5 @@ angular.module('expAppCours')
             });
         };
 
-        // $scope.info();
+         $scope.info();
     });
